@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="icon" type="image/x-icon" href="/images/ToDoIcon.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <!-- Button to Add New Task -->
+        <new-task-button @new-task-submitted="showNewTask"></new-task-button>
+        
+    </div>
+
+    <!-- Import App -->
+    <script src="/app.js"></script>
+
+    <!-- New Task Component -->
+    <script src="components/NewTask.js"></script>
+    <!-- New Task Form Component -->
+    <script src="components/NewTaskForm.js"></script>
+    <!-- Todo Component -->
+    <script src="components/TodoComponent.js"></script>
+    <!-- Ongoing Component -->
+    <script src="components/OngoingComponent.js"></script>
+    <!-- Completed Component -->
+    <script src="components/CompletedComponent.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        const mountedApp=app.mount("#app")
+    </script>
+</body>
+</html>
