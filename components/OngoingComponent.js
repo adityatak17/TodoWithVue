@@ -8,7 +8,6 @@ app.component("ongoing-component",{
     template:
     /*html*/
     `
-    <h1>Ongoing Tasks</h1>
     <div v-show="ongoingtaskslist.length">
         <ul>
             <li v-for=" (task,index) in ongoingtaskslist" :key="index">
@@ -16,8 +15,8 @@ app.component("ongoing-component",{
                 <p>Description: {{task.description}}</p>
                 <div class="form-buttons">    
                     <button class="button" @click="moveToCompleted(task,index,instanceNumber)">Move to Completed Tasks</button>
-                    <button class="button" @click="moveToDeleted(task,index,instanceNumber)">Delete This Task</button>
                     <button class="button" @click="moveToTodo(task,index,instanceNumber)">Move to Todo List</button>
+                    <button class="button" @click="moveToDeleted(task,index,instanceNumber)">Delete This Task</button>
                 </div>
                 <br>
             </li>

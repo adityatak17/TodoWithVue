@@ -9,9 +9,8 @@ app.component("todo-component",{
     template:
     /*html*/
     `
-    <h1>Todo Tasks</h1>
     <div v-show="todotaskslist.length">
-        <ul>
+        
             <li v-for=" (task,index) in todotaskslist" :key="index">
                 <p>Title:   {{task.title}}</p>
                 <p>Description: {{task.description}}</p>
@@ -22,7 +21,7 @@ app.component("todo-component",{
                 </div>
                 <br>
             </li>
-        </ul>
+        
     </div>
     ` ,
     data(){

@@ -11,33 +11,44 @@
 </head>
 <body>
     <div id="app">
-        
         <!-- Button to Add New Task -->
         <new-task-button @new-task-button-clicked="addForm=true"></new-task-button>
 
         <!-- New Tak Form Component -->
         <new-task-form @task-adding-done="addForm=false" @new-task-added="addingNewTask" :addform="addForm"></new-task-form>
-
-        <!-- To Do List Component -->
-        <todo-component @move-to-ongoing="moveToOngoing" 
-                        @move-to-completed="moveToCompleted" 
-                        @move-to-deleted="moveToDeleted" 
-                        :todotaskslist="TodoTasks">
-        </todo-component>
-
-        <!-- Ongoing Task Component -->
-        <ongoing-component  @move-to-completed="moveToCompleted"
-                            @move-to-deleted="moveToDeleted"
-                            @move-to-todo="moveToTodo"
-                            :ongoingtaskslist="OngoingTasks">
-        </ongoing-component>
-
-        <!-- Completed Task Component -->
-        <completed-component @move-to-deleted="moveToDeleted"
-                             @move-to-todo="moveToTodo"
-                             @move-to-ongoing="moveToOngoing"
-                             :completedtaskslist="CompletedTasks">
-        </completed-component>
+        <table>
+            <tr>
+                <th>Todo Tasks</th>
+                <th>Ongoing Tasks</th>
+                <th>Completed Tasks</th>
+            </tr>
+            <tr>
+                <td>
+                    <!-- To Do List Component -->
+                    <todo-component @move-to-ongoing="moveToOngoing" 
+                                    @move-to-completed="moveToCompleted" 
+                                    @move-to-deleted="moveToDeleted" 
+                                    :todotaskslist="TodoTasks">
+                    </todo-component>
+                </td>
+                <td>
+                    <!-- Ongoing Task Component -->
+                    <ongoing-component  @move-to-completed="moveToCompleted"
+                                        @move-to-deleted="moveToDeleted"
+                                        @move-to-todo="moveToTodo"
+                                        :ongoingtaskslist="OngoingTasks">
+                    </ongoing-component>
+                </td>
+                <td>
+                    <!-- Completed Task Component -->
+                    <completed-component @move-to-deleted="moveToDeleted"
+                                        @move-to-todo="moveToTodo"
+                                        @move-to-ongoing="moveToOngoing"
+                                        :completedtaskslist="CompletedTasks">
+                    </completed-component>
+                </td>
+            </tr>
+        </table>
 
         <!-- Button to Show Deleted Tasks -->
         <deleted-task-button @deleted-task-button-clicked="deleteForm=!deleteForm" 
