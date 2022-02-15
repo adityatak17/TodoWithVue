@@ -1,27 +1,29 @@
-app.component("completed-component",{
-    props: {
-        completedtaskslist:{
+app.component("deleted-component",{
+    props:{
+        deletedtaskslist: {
             type:Array,
+            required:true
+        },
+        deleteform: {
+            type:Boolean,
             required:true
         }
     } ,
     template:
     /*html*/
     `
-    <div class="flexbox-vertical">
-        <h1>Completed Tasks</h1>
+    <div v-show="deleteform">
+        <h1>Deleted Tasks</h1>
         <ul>
-            <li v-for=" (task,index) in completedtaskslist" :key="index">
-                <div class="task-details">
-                    <p>Title: {{task.title}}</p>
-                    <br>
-                    <p>Description: {{task.description}}</p>
+            <li v-for=" (task,index) in deletedtaskslist" :key="index">
+                Title: {{task.title}}
                 <br>
-                </div>
+                Description: {{task.description}}
+                <br>
                 <div class="flexbox-buttons">
-                    <button class="button" @click="moveToDeleted(task,index,instanceNumber)">Delete This Task</button>
                     <button class="button" @click="moveToTodo(task,index,instanceNumber)">Move to Todo List</button>
                     <button class="button" @click="moveToOngoing(task,index,instanceNumber)">Move to Ongoing Tasks</button>
+                    <button class="button" @click="moveToCompleted(task,index,instanceNumber)">Move to Completed Tasks</button>
                 </div>
                 <br>
             </li>
@@ -30,21 +32,18 @@ app.component("completed-component",{
     ` ,
     data(){
         return {
-            instanceNumber:2
+            instanceNumber:3
         }
     } ,
-    methods: {
-        moveToDeleted(task,index,instanceNumber){
-            this.$emit("move-to-deleted",task,index,instanceNumber)
-        },
+    methods:{
         moveToTodo(task,index,instanceNumber){
             this.$emit("move-to-todo",task,index,instanceNumber)
         },
         moveToOngoing(task,index,instanceNumber){
             this.$emit("move-to-ongoing",task,index,instanceNumber)
+        },
+        moveToCompleted(task,index,instanceNumber){
+            this.$emit("move-to-completed",task,index,instanceNumber)
         }
-    } ,
-    computed: {
-        
     }
 })

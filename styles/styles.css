@@ -9,12 +9,17 @@ body{
 
 /* New Task Button */
 
-#new-task-div{
+#new-task-div,#deleted-task-div{
     text-align: center;
 }
 
-#new-task-button{
+#new-task-button,#deleted-task-button{
     margin-top: 50px;
+}
+
+#new-task-button p,#deleted-task-button p{
+    margin: 0;
+    padding: 3px;
 }
 
 .button,#button3{
@@ -45,6 +50,9 @@ body{
     padding: 30px;
     border-radius: 50px;
     border: 3px solid #B8D0EB;
+}
+.new-task-form fieldset:hover{
+    border: 3px solid #416165;
 }
 
 .new-task-form input {
@@ -96,35 +104,52 @@ input:focus{
     margin-top: 40px;
 }
 
-#components{
+li{
+    list-style-type: none;
+}
+.flexbox-component{
     display: flex;
-    justify-content:space-around ;
-    margin-top: 50px;
+}
+.flexbox-component div{
+    width: 33.33%;
+    margin: auto;
+    margin-top: 40px;
+
 }
 
-.tasks-center{
+.task-details{
+    background-color: whitesmoke;
+    text-align: center;
+}
+.flexbox-vertical{
     display: flex;
     flex-direction: column;
 }
 
-.tasks-block{
-    background-color: white;
-    
+ul.flexbox-vertical{
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
-
-.tasks-block li{
-    border: 5px solid red;
+#center{
+    text-align: center;
+    margin: 0;
 }
-
-.task-title{
+.flexbox-buttons{
+    display: flex;
+    flex-direction: row;
+}
+.flexbox-buttons button{
     text-align: center;
 }
 
-.task-description{
-    text-align: center;
+.float-left{
+float: left;
 }
-
-
-.status-change-button button{
-    margin: auto;
+.float-left button{
+    height: fit-content;
+    width: fit-content;
+}
+button.button{
+    text-align: center;
 }

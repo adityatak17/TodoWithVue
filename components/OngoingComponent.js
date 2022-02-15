@@ -1,6 +1,6 @@
 app.component("ongoing-component",{
     props: {
-        allOngoingTasks:{
+        ongoingtaskslist:{
             type:Array,
             required:true
         }
@@ -8,41 +8,41 @@ app.component("ongoing-component",{
     template:
     /*html*/
     `
-    <div class="tasks-center">
+    <div class="flexbox-vertical">
         <h1>Ongoing Tasks</h1>
-        <div :class="{ 'tasks-block': allOngoingTasks.length }">
-            <ul>
-                <li v-for="(task, index) in allOngoingTasks" :key="index">
-                    <div class="task-title"> {{task.title}} </div> 
+        <ul>
+            <li v-for=" (task,index) in ongoingtaskslist" :key="index">
+                <div class="task-details">
+                    <p>Title: {{task.title}}</p>
                     <br>
-                    <div class="task-description"> {{task.description}} </div>
+                    <p>Description: {{task.description}}</p>
                     <br>
-                    <div class="status-change-button">
-                        <button @click="addTask=true" 
-                                class="button" >
-                            Move to Completed Tasks
-                        </button>
-                        <button @click="addTask=true" 
-                                class="button" >
-                            Delete This Task
-                        </button>
-                        <button @click="addTask=true" 
-                                class="button" >
-                            Add to Todo List
-                        </button>
-                    </div>
-                </li>
+                </div>
+                <div class="flexbox-buttons">    
+                    <button class="button" @click="moveToCompleted(task,index,instanceNumber)">Move to Completed Tasks</button>
+                    <button class="button" @click="moveToDeleted(task,index,instanceNumber)">Delete This Task</button>
+                    <button class="button" @click="moveToTodo(task,index,instanceNumber)">Move to Todo List</button>
+                </div>
                 <br>
-            </ul>
-        </div>
+            </li>
+        </ul>
     </div>
     ` ,
     data(){
         return {
-
+            instanceNumber:1
         }
     } ,
     methods: {
+        moveToCompleted(task,index,instanceNumber){
+            this.$emit("move-to-completed",task,index,instanceNumber)
+        },
+        moveToDeleted(task,index,instanceNumber){
+            this.$emit("move-to-deleted",task,index,instanceNumber)
+        },
+        moveToTodo(task,index,instanceNumber){
+            this.$emit("move-to-todo",task,index,instanceNumber)
+        }
 
     } ,
     computed: {

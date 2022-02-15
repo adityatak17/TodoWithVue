@@ -13,23 +13,71 @@
     <div id="app">
         
         <!-- Button to Add New Task -->
-        <new-task-button @new-task-submitted="showNewTask"></new-task-button>
+        <new-task-button @new-task-button-clicked="addForm=true"></new-task-button>
+
+        <!-- New Tak Form Component -->
+        <new-task-form @task-adding-done="addForm=false" @new-task-added="addingNewTask" :addform="addForm"></new-task-form>
+       
+        <div class="flexbox-component">
+            <!-- To Do List Component -->
+            <div>
+                <todo-component @move-to-ongoing="moveToOngoing" 
+                                @move-to-completed="moveToCompleted" 
+                                @move-to-deleted="moveToDeleted" 
+                                :todotaskslist="TodoTasks">
+                </todo-component>
+            </div>
+            
+            <!-- Ongoing Task Component -->
+            <div>
+                <ongoing-component @move-to-completed="moveToCompleted"
+                                @move-to-deleted="moveToDeleted"
+                                @move-to-todo="moveToTodo"
+                                :ongoingtaskslist="OngoingTasks">
+                </ongoing-component>
+            </div>
+
+            <!-- Completed Task Component -->
+            <div>
+                <completed-component @move-to-deleted="moveToDeleted"
+                                    @move-to-todo="moveToTodo"
+                                    @move-to-ongoing="moveToOngoing"
+                                    :completedtaskslist="CompletedTasks">
+                </completed-component>
+            </div>
+        </div>
+
+        <!-- Button to Show Deleted Tasks -->
+        <deleted-task-button @deleted-task-button-clicked="deleteForm=!deleteForm" :deleteform="deleteForm">
+        </deleted-task-button>
+
+        <!-- Deleted Task Component -->
+        <deleted-component @move-to-todo="moveToTodo"
+                           @move-to-ongoing="moveToOngoing"
+                           @move-to-completed="moveToCompleted" 
+                           :deletedtaskslist="DeletedTasks"
+                           :deleteform="deleteForm">
+        </deleted-component>
         
     </div>
 
     <!-- Import App -->
     <script src="/app.js"></script>
 
-    <!-- New Task Component -->
-    <script src="components/NewTask.js"></script>
-    <!-- New Task Form Component -->
+    <!-- Importing New Task Button Component -->
+    <script src="components/NewTaskButton.js"></script>
+    <!-- Importing New Task Form Component -->
     <script src="components/NewTaskForm.js"></script>
-    <!-- Todo Component -->
+    <!-- Importing Todo Component -->
     <script src="components/TodoComponent.js"></script>
-    <!-- Ongoing Component -->
+    <!-- Importing Ongoing Component -->
     <script src="components/OngoingComponent.js"></script>
-    <!-- Completed Component -->
+    <!-- Importing Completed Component -->
     <script src="components/CompletedComponent.js"></script>
+    <!-- Importing Show  Deleted Task Button -->
+    <script src="components/DeletedTaskButton.js"></script>
+    <!-- Importing Deleted Component -->
+    <script src="components/DeletedComponent.js"></script>
 
     <!-- Mount App -->
     <script>
