@@ -16,11 +16,9 @@ app.component("deleted-component",{
         <h1>Deleted Tasks</h1>
         <ul>
             <li v-for=" (task,index) in deletedtaskslist" :key="index">
-                Title: {{task.title}}
-                <br>
-                Description: {{task.description}}
-                <br>
-                <div class="flexbox-buttons">
+                <p>Title: {{task.title}}</p>
+                <p>Description: {{task.description}}</p>
+                <div class="form-buttons">
                     <button class="button" @click="moveToTodo(task,index,instanceNumber)">Move to Todo List</button>
                     <button class="button" @click="moveToOngoing(task,index,instanceNumber)">Move to Ongoing Tasks</button>
                     <button class="button" @click="moveToCompleted(task,index,instanceNumber)">Move to Completed Tasks</button>

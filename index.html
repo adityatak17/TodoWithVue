@@ -17,40 +17,32 @@
 
         <!-- New Tak Form Component -->
         <new-task-form @task-adding-done="addForm=false" @new-task-added="addingNewTask" :addform="addForm"></new-task-form>
-       
-        <div class="flexbox-component">
-            <!-- To Do List Component -->
-            <div>
-                <todo-component @move-to-ongoing="moveToOngoing" 
-                                @move-to-completed="moveToCompleted" 
-                                @move-to-deleted="moveToDeleted" 
-                                :todotaskslist="TodoTasks">
-                </todo-component>
-            </div>
-            
-            <!-- Ongoing Task Component -->
-            <div>
-                <ongoing-component @move-to-completed="moveToCompleted"
-                                @move-to-deleted="moveToDeleted"
-                                @move-to-todo="moveToTodo"
-                                :ongoingtaskslist="OngoingTasks">
-                </ongoing-component>
-            </div>
 
-            <!-- Completed Task Component -->
-            <div>
-                <completed-component @move-to-deleted="moveToDeleted"
-                                    @move-to-todo="moveToTodo"
-                                    @move-to-ongoing="moveToOngoing"
-                                    :completedtaskslist="CompletedTasks">
-                </completed-component>
-            </div>
-        </div>
+        <!-- To Do List Component -->
+        <todo-component @move-to-ongoing="moveToOngoing" 
+                        @move-to-completed="moveToCompleted" 
+                        @move-to-deleted="moveToDeleted" 
+                        :todotaskslist="TodoTasks">
+        </todo-component>
+
+        <!-- Ongoing Task Component -->
+        <ongoing-component  @move-to-completed="moveToCompleted"
+                            @move-to-deleted="moveToDeleted"
+                            @move-to-todo="moveToTodo"
+                            :ongoingtaskslist="OngoingTasks">
+        </ongoing-component>
+
+        <!-- Completed Task Component -->
+        <completed-component @move-to-deleted="moveToDeleted"
+                             @move-to-todo="moveToTodo"
+                             @move-to-ongoing="moveToOngoing"
+                             :completedtaskslist="CompletedTasks">
+        </completed-component>
 
         <!-- Button to Show Deleted Tasks -->
-        <deleted-task-button @deleted-task-button-clicked="deleteForm=!deleteForm" :deleteform="deleteForm">
+        <deleted-task-button @deleted-task-button-clicked="deleteForm=!deleteForm" 
+                             :deleteform="deleteForm">
         </deleted-task-button>
-
         <!-- Deleted Task Component -->
         <deleted-component @move-to-todo="moveToTodo"
                            @move-to-ongoing="moveToOngoing"
@@ -68,12 +60,16 @@
     <script src="components/NewTaskButton.js"></script>
     <!-- Importing New Task Form Component -->
     <script src="components/NewTaskForm.js"></script>
+
     <!-- Importing Todo Component -->
     <script src="components/TodoComponent.js"></script>
+
     <!-- Importing Ongoing Component -->
     <script src="components/OngoingComponent.js"></script>
+
     <!-- Importing Completed Component -->
     <script src="components/CompletedComponent.js"></script>
+
     <!-- Importing Show  Deleted Task Button -->
     <script src="components/DeletedTaskButton.js"></script>
     <!-- Importing Deleted Component -->

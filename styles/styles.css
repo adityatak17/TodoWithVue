@@ -9,15 +9,15 @@ body{
 
 /* New Task Button */
 
-#new-task-div,#deleted-task-div{
+#new-task-div,#deleted-task-div,#todo-task-div,#completed-task-div,#ongoing-task-div{
     text-align: center;
 }
 
-#new-task-button,#deleted-task-button{
+#new-task-button,#deleted-task-button,#todo-task-button,#completed-task-button,#ongoing-task-button{
     margin-top: 50px;
 }
 
-#new-task-button p,#deleted-task-button p{
+#new-task-button p,#deleted-task-button p,#todo-task-button p,#completed-task-button p,#ongoing-task-button p{
     margin: 0;
     padding: 3px;
 }
@@ -107,49 +107,35 @@ input:focus{
 li{
     list-style-type: none;
 }
-.flexbox-component{
-    display: flex;
+.form-buttons{
+    text-align: center;
 }
-.flexbox-component div{
-    width: 33.33%;
-    margin: auto;
-    margin-top: 40px;
-
+.form-buttons button{
+    margin: 30px;
+    padding: 3px;
 }
 
-.task-details{
-    background-color: whitesmoke;
+div>h1{
     text-align: center;
-}
-.flexbox-vertical{
-    display: flex;
-    flex-direction: column;
+    background-color: #C6D8FF; 
+    margin-top:40px ;
+    color: #416165;
 }
 
-ul.flexbox-vertical{
-    margin: 0;
-    padding: 0;
+li>p{
     text-align: center;
-}
-#center{
-    text-align: center;
-    margin: 0;
-}
-.flexbox-buttons{
-    display: flex;
-    flex-direction: row;
-}
-.flexbox-buttons button{
-    text-align: center;
+    background-color: #416165;
+    text-transform: uppercase;
+    color: whitesmoke;
 }
 
-.float-left{
-float: left;
+ul{
+    margin:0px;
+    padding: 0px;
 }
-.float-left button{
-    height: fit-content;
-    width: fit-content;
-}
-button.button{
-    text-align: center;
+
+li{
+    border: 5px solid #98A6D4;
+    border-radius: 30px;
+    margin-bottom:25px ;
 }

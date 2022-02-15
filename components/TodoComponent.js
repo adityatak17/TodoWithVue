@@ -9,15 +9,13 @@ app.component("todo-component",{
     template:
     /*html*/
     `
-    <div class="task-details">
-        <h1>Todo Tasks</h1>
-        <ul class="flexbox-vertical clearfix">
+    <h1>Todo Tasks</h1>
+    <div v-show="todotaskslist.length">
+        <ul>
             <li v-for=" (task,index) in todotaskslist" :key="index">
-                <div id="center">
-                    <p>Title: {{task.title}}</p>
-                    <p>Description: {{task.description}}</p>
-                </div>
-                <div class="float-left">
+                <p>Title:   {{task.title}}</p>
+                <p>Description: {{task.description}}</p>
+                <div class="form-buttons">
                     <button class="button" @click="moveToOngoing(task,index,instanceNumber)">Move to Ongoing Tasks</button>
                     <button class="button" @click="moveToCompleted(task,index,instanceNumber)">Move to Completed Tasks</button>
                     <button class="button" @click="moveToDeleted(task,index,instanceNumber)">Delete This Task</button>
