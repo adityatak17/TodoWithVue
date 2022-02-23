@@ -7,10 +7,11 @@ const app=Vue.createApp({
             OngoingTasks:[],
             CompletedTasks:[],
             DeletedTasks:[],
+            abc:"aditya"
         }
     },
     methods:{
-
+        
         addingNewTask(newTaskInstance,ButtonId){
 
             if(ButtonId==0){

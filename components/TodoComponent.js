@@ -1,6 +1,5 @@
 app.component("todo-component",{
     props: {
-
         todotaskslist: {
             type:Array,
             required:true
