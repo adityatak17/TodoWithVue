@@ -7,7 +7,6 @@ const app=Vue.createApp({
             OngoingTasks:[],
             CompletedTasks:[],
             DeletedTasks:[],
-            abc:"aditya"
         }
     },
     methods:{
